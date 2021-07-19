@@ -83,6 +83,15 @@ Things you may want to cover:
 
 ## items テーブル
 
+| Column                   | Type       | Options                         |
+|--------------------------|------------|---------------------------------|
+| product_name             | string     | null: false                     |
+| product_descriiption     | text       | null: false                     |
+| price                    | integer    | null: false                     | 
+| shipping_charge_id       | integer    | null: false                     |
+| delivery_area_id         | integer    | null: false                     | 
+| user                     | references | null: false, foreign_key: true  |
+
 ### Association
 
 ## formsテーブル
