@@ -5,7 +5,7 @@
     before_action :set_purehase, only: [:edit, :update, :destroy]
   
     def index
-      #@items = Item.all.order('created_at DESC')
+      @items = Item.all.order('created_at DESC')
     end
   
     def new
@@ -42,8 +42,8 @@
   
   
     def item_params
-      params.require(:item).permit(:image, :product_name, :product_descriiption, :category_id, :product_condition_id, :price,
-                                   :shipping_charge_id, :delivery_area_id, :days_to_delivery_id).merge(user_id: current_user.id)
+      params.require(:item).permit(:image, :product_name, :product_descriiption, :price,
+                                   :shipping_charge_id, :delivery_area_id).merge(user_id: current_user.id)
     end
   
     private

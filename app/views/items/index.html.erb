@@ -44,7 +44,7 @@
 		<h2><span>サービス紹介</span></h2>
 	</header>
 	<div class="innerS">
-		ちかごろ世間で日本歴史の科学的研究ということがしきりに叫ばれている。科学的研究というのが近代史学の学問的方法による研究という意義であるならば、これは史学の学徒の間においては一般に行われていることであるから、今さらこと新しくいうには及ばないはずである。上にいったようなことがらについては、曖昧あいまいな態度をとり、または真実でない知識を強いて注入していたことも、明かな事実である。
+		新しいお買い物体験をしてみませんか？
 	</div>
 </section>
 <!-- // MESSAGE -->
@@ -73,10 +73,45 @@
 	<header>
 		<h2><span>商品一覧</span></h2>
 	</header>
-	<div class="innerS">
-		<img src="images/imgProject.jpg" width="726" height="333" alt="">
-		<p>ちかごろ世間で日本歴史の今さらこと新しくいうには科学的研究ということがしきりに叫ばれているということがしきりに叫ばれている。科学的研究というのが近代史学の学問的方法による研究という意義であるならば、これは史学の学徒の間においては一般に行われていることであるから、今さらこと新しくいうには及ばないはずである。科学的研究というのが近代史学の学問的方法によるちかごろ世間で日本歴史の科学的研究及ばないはずである。</p>
-	</div>
+	      <% @items.each do |item|%>
+      <li class='list'>
+        <%= link_to new_item_room_path(item.id) do %>
+          <div class='item-img-content'>
+					<%= image_tag item.image.variant(resize: '500x500'), class: 'item-image' if item.image.attached? %>
+
+          </div>
+        <div class='item-info'>
+          <h3 class='item-name'>
+              <%= item.product_name %>
+          </h3>
+          <div class='item-price'>
+              <span><%= item.price %>円<br><%= item.shipping_charge.name %></span>
+            <div class='star-btn'>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+        </div>
+    <% end %>
+      </li>
+      <% end %>
+      <% if @items.length == 0 %>
+      <li class='list'>
+        <%= link_to '#' do %>
+        <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            商品を出品してね！
+          </h3>
+          <div class='item-price'>
+            <span>99999999円<br>(税込み)</span>
+            <div class='star-btn'>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </li>
+      <% end %>
 </section>
 <!-- // PROJECT -->
 
